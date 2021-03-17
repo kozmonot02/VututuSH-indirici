@@ -1,3 +1,3 @@
-# VututuSH-ndirici
+# VututuSH-İndirici
 indiriyor işte aga
 debian tabanlılar için
