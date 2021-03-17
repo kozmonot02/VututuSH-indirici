@@ -116,7 +116,16 @@ if [[ $oku = "4" ]] ; then
 clear
 echo -e "${purple}SistemBilgisi"
 lsb_release -a
-sudo apt install screenfetch -y 
+
+# screenfetch zaten yuklu mu?
+dpkg -l | grep screenfetch > /dev/null
+if [ $? -eq 1 ]; then
+    echo "Yukleme basliyor..."
+   sudo apt install screenfetch -y
+else
+    echo " ✓ "
+fi
+
 screenfetch
 
 fi
