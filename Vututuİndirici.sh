@@ -49,7 +49,7 @@ spinlong ()
         n=$((i*barlength / 100))
         printf "\e[00;32m\r[%-${barlength}s]\e[00m" "${bar:0:n}"
         ((i += RANDOM%5+2))
-        sleep 0.3
+        sleep 0.2
     done
     echo -e "[${red}OK${tp}]"
 }
@@ -60,9 +60,12 @@ spinlong
 #arayüz
 echo -e "$yellow 1-)$white Güncelleyici$yellow  2-)$white Şifre Oluşturucu"
 echo ""
+echo -e "$yellow 3-)$white Ram Bilgisi$yellow  4-)$white Sistem Bilgisi"
+echo ""
 echo -e "\n"
 echo -ne "${red}Vututu${white} ${green}Script]➢ "   
 read oku
+
 #arayüz2
 
         case "$oku" in 
@@ -90,11 +93,30 @@ read oku
 
 if [[ $oku = "2" ]] ; then
 clear
-echo -ne "${purple}VututuRandomPassword
+echo -ne "${purple}VututuRandomPassword"
 
  "${blue}SifreUzunlugunuzuBelirleyin=
  
 read sayi
 
 tr -dc 'A-Za-z0-9!"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' </dev/urandom | head -c $sayi  ; echo
+fi
+
+    if [[ $oku = "3" ]] ; then
+clear
+echo -e "${purple}RamBilgisi" 
+
+free -m 
+
+sudo lshw -short -C memory 
+
+fi
+
+if [[ $oku = "4" ]] ; then
+clear
+echo -e "${purple}SistemBilgisi"
+lsb_release -a
+sudo apt install screenfetch -y 
+screenfetch
+
 fi
